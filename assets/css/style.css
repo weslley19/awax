@@ -1,0 +1,1020 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap');
+
+* {
+     /* todos os itens do site iram receber isso */
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;  /* alterar a propriedade padrão da box model, usada para calcular larguras (widths) e alturas (heights) dos elementos */
+
+} 
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    overflow-x: hidden;   /* quando o conteúdo de um elemento de nível de bloco deve ser cortado */
+}
+header {
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+.header {
+    max-width: 1140px;
+    height: 100px;
+    margin: auto; /* centraliza */
+    display: flex; /* O elemento se comporta como um elemento de bloco */
+    align-items: center; /* centraliza tudo na vertical */
+}
+.logo {
+    width: 100px;
+}
+.logoimg {
+    width: 80px;
+    height: 80px;
+    background-color: #b28765;
+    border-radius: 50%;
+}
+/* menu do tablet e do celular */
+.menu-opener {
+    display: none;
+}
+.menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* alinha a direita */
+}
+.menu ul,
+.menu li {
+    list-style: none; /* tirar o enfeite */
+}
+.menu ul {
+    display: flex; /* alinha horizontalmente */
+}
+/* trabalhar com o link dentro do li */
+.menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600; /* negrito */
+    text-decoration: none; /* tira o sublinhado do link */
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    display: flex; /* utiliza o flex pra poder centrazilar horizontalmente */
+    align-items: center;
+    border-bottom: 5px solid #000;  /* coloca por padrao pra nao pular */
+}
+.menu li a:hover {
+    border-bottom: 5px solid #b28765;
+    color: darkgray;
+}
+.menu .active a {
+    border-bottom: 5px solid #b28765;
+    color: darkgray;
+}
+
+
+/* area do button */
+.button {
+    display: inline-block;   /* funcionar pros dois botoes */
+    background-color: #b28765;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 18px;
+    margin-top: 30px;
+}
+.button:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/* fim do button */
+
+
+.banner {
+    /* A medida vh é igual a 1/100 da altura da viewport */
+    height: calc(100vh - 100px); /* 100px dol header */ /* executar cálculos quando especificar os valores de propriedades no CSS. */
+    background-color: #333; /* fundo padrao antes de carregar a imagem */
+    background-image: url('../images/bg.jpg');
+    background-size: cover; /* ajusta ao tamanho da tela */
+    background-position: bottom;  /* prioriza o lado da foto indicado */
+    overflow: hidden;  /* tira a rolagem pq ignora tudo que passar */
+}
+/* precisa ter a largura de todos os slides */
+.banner .sliders {
+    width: 1000vw;
+    height: 100%;
+}
+.banner .slide {
+    width: 100vw;  /* largura total disponivel */
+    height: 100%;
+    display: inline-block;  /* bloco pra cada item um do lado do outro */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.banner .slidearea {
+    display: flex;
+    flex-direction: column;  /* itens abaixo do outro */
+    height: 100%;
+    align-items: center; /* alinha na vertical */
+    justify-content: center;  /* alinha na horizontal */
+    color: #fff;
+}
+.banner h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+}
+.banner h1 span {
+    color: #b28765;
+}
+.banner h2 {
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+.banner .sliders-pointers {
+    width: 100vw;   /* nao se sabe o tanto que pode ter */
+    height: 20px;
+    position: absolute;   /* pra nao ser ignorado pelo banner */
+    margin-top: -45px;
+    display: flex;  /* conjunto dos 3 alinha ao meio */
+    justify-content: center;
+    align-items: center;
+}
+.banner .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b28765;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.banner .pointer.active {
+    background-color: #b28765;
+}
+.banner .pointer:hover {
+    cursor: pointer;
+}
+
+
+
+.default {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+/* o que serve pros fica aqui */
+.default .section-title,
+.default .section-desc {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.default .section-title {
+    font-size: 20px;
+}
+.default .section-desc {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.default .section-body {
+    max-width: 1140px;;
+    margin: auto;
+}
+
+/* default ligth*/
+.default.ligth {
+    background-color: #f7f7f7;
+}
+.default.ligth .section-title,
+.default.ligth .section-body {
+    color: #000;
+}
+
+/* default dark */
+.default.dark {
+    background-color: #000;
+}
+.default.dark .section-title,
+.default.dark .section-body {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CSS de areas especificas */
+.section-aboutus {
+    display: flex;   /* cad ficar do lado do outro */
+}
+.section-aboutus--left {
+    flex: 1;
+}
+.section-aboutus--left {
+    font-size: 14px;
+    line-height: 25px;  /* espaçamento entre linha */
+    text-align: justify;
+}
+.section-aboutus--rigth {
+    width: 520px;
+    text-align: center;
+}
+.section-aboutus--rigth img {
+    width: 480px;
+    box-shadow: 0px 5px 10px #333;
+}
+
+
+.section-services {
+    display: flex;   /* pega o conteudo e joga lado a lado */
+}
+.section-service img {
+    width: 50px;
+    height: 50px;
+}
+.section-service {
+    flex: 1;  /* pega o conteudo e joga lado a lado */ 
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid darkgray;
+}
+/* aplica so no primeiro */
+.section-service:first-child {
+    border-left: 1px solid darkgray;
+}
+.section-service h4 {
+    margin-top: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.section-service p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: darkgray;
+}
+
+
+
+.section-projects {
+    /* alinhando ao centro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-projects--filters {
+    border: 1px solid rgb(194, 192, 192);;
+    background-color: rgb(223, 221, 221);
+    border-radius: 30px;
+    display: inline-block;   /* pegar a area especifica do conteudo */
+    padding: 0px 20px;
+}
+.section-projects--filters ul,
+.section-projects--filters li {
+    list-style: none;
+}
+.section-projects--filters li {
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-left: 1px solid rgb(194, 192, 192);
+    color: #555;
+    border-bottom: 3px solid rgb(223, 221, 221);  /* por padrao pra nao pular */
+}
+.section-projects--filters li:hover,
+.section-projects--filters li.active {
+    border-bottom: 3px solid #b28765;
+    cursor: pointer;
+}
+.section-projects--filters li:first-child {
+    border-left: 0;
+}
+
+
+
+.section-projects--photos {
+    width: 100vw;
+    max-width: 1140px;
+    margin-top: 20px;
+    display: flex;   /* fica tudo do lado do outro na mesma linha */
+    flex-wrap: wrap;  /* caso nao caiba na linha ele pula pra de baixo */
+    justify-content: center;
+}
+.section-projects--photo {
+    width: 280px;
+}
+.section-projects--photoarea {
+    margin: 10px;
+    width: 260px;
+    height: 160px;
+}
+.section-projects--photoarea img {
+    width: inherit;  /* herda caracteristicas do anterior */
+    height: inherit;
+}
+.section-projects--photoarea:hover {
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+.section-projects--photoinfo {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: inherit;
+    height: inherit;
+    display: none;
+    flex-direction: column;   /* texto abaixo */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.section-projects--photoinfo h5 {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;;
+}
+/* quando passar o mouse no photoarea, vai alterar o display none do photoinfo pra flex */
+.section-projects--photoarea:hover .section-projects--photoinfo {
+    display: flex;
+}
+
+
+
+
+.bg-team {
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+}
+.section-team-area {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;    /* bg-team tinha padding-top de 50 */
+    padding-bottom: 50px;   /* /* bg-team tinha padding-bottom de 50 */ 
+}
+.section-team{
+    overflow: hidden;   /* remove a area que passa */
+    max-width: 880px;    /* pra aparecer so 3 slides na pagina */
+    margin: auto;   /* centralizar */
+}
+.section-team .sliders {
+    width: 1000vw;
+    height: 100%;
+}
+.section-team .slide {
+    width: 280px;   /* largura das fotos */ 
+    height: 100%;
+    min-height: 300px;
+    display: inline-block;  /* bloco pra cada item um do lado do outro */
+    background-color: #fff;
+    margin-right: 20px;
+}
+.section-team .slidearea {
+    display: flex;
+    flex-direction: column;  /* itens abaixo do outro */
+    height: 100%;
+    align-items: center; /* alinha na vertical */
+    justify-content: center;  /* alinha na horizontal */
+    color: #000;
+    padding: 30px;   /* afastar a foto avatar */
+}
+.section-team-area .sliders-pointers {
+    margin-top: 30px;
+    height: 20px;
+    display: flex;  /* conjunto dos 3 alinha ao meio */
+    justify-content: center;
+    align-items: center;
+}
+.section-team-area .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b28765;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.section-team-area .pointer.active {
+    background-color: #b28765;
+}
+.section-team-area .pointer:hover {
+    cursor: pointer;
+}
+.section-team--avatar {
+    width: 150px;
+    height: auto;
+}
+.section-team--name {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top:20px;
+}
+.section-team--role {
+    color: darkgray;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.section-team--social {
+    display: flex;   /* icones lado a lado */
+    margin-top: 15px;
+}
+.section-team--social a {
+    display: inline-flex;  /* pra usar o justify e o aling-items */
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: darkgray;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.section-team--social a:hover {
+    background-color: #b28765;
+}
+
+
+
+
+.section-clients--avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.section-clients--name {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top:20px;
+}
+.section-clients--role {
+    text-align: center;
+    color: darkgray;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.section-clients--quote {
+    text-align: center;
+    margin-top: 30px;
+}
+.section-clients--text {
+    text-align: center;
+    margin: 15px;
+    color: darkgray;
+}
+.section-clients--pointer .sliders-pointers {
+    margin-top: 50px;
+    height: 20px;
+    display: flex;  /* conjunto dos 3 alinha ao meio */
+    justify-content: center;
+    align-items: center;
+}
+.section-clients--pointer .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b28765;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.section-clients--pointer .pointer.active {
+    background-color: #b28765;
+}
+.section-clients--pointer .pointer:hover {
+    cursor: pointer;
+}
+
+
+
+.section-companies {
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+.section-companies--area {
+    display:flex;
+    align-items:center;
+}
+.section-company {
+    flex:1;
+    text-align:center;
+}
+
+
+
+
+
+
+.section-price--banners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-prices--bannerarea {
+    width: 220px;
+    background-color: #fff;
+    padding-bottom: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.section-prices-title {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+.section-price--prices {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.section-price-month {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: darkgray;
+}
+.section-price-desc {
+    margin-top: 20px;
+    color: rgb(141, 141, 141);
+    line-height: 25px;
+    margin-bottom: 25px;
+}
+.section-prices--bannerarea a {
+    background-color: #000;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+.section-prices--bannerarea a:hover {
+    background-color: #b28765;
+}
+
+
+
+
+
+.default.bg-white {
+    background-color: #fff;
+}
+.section-premium {
+    display: flex;
+    justify-content: center;
+}
+.section-premium-left {
+    margin-left: 30px;
+    margin-top: 25px;
+}
+.section-premium-img {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+.section-premium-img h3 {
+    margin-left: 25px;
+}
+.section-premium-desc {
+    margin-bottom: 18px;
+    margin-left: 59px;
+    line-height: 24px;
+    color: darkgray;
+}
+.section-premium-desc span {
+    text-transform: uppercase;
+}
+
+
+
+
+
+.section-some--facts {
+    display: flex;   /* pega o conteudo e joga lado a lado */
+}
+.section-facts {
+    flex: 1;  /* pega o conteudo e joga lado a lado */ 
+    text-align: center;
+    padding: 10px;
+}
+.section-facts h3 {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(177, 126, 63);
+    text-transform: uppercase;
+}
+.section-facts p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border-bottom: 1px solid darkgray;
+}
+.social-icons-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-icons-share img {
+    margin-right: 15px;
+}
+.social-icons-share img:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition-duration: 0.5s;
+}
+.social-icons-share span {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: darkgray
+}
+.social-icons-share span:hover {
+    color: #000;
+}
+.social-icons--icons {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    margin-left: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color:darkgray;
+}
+.social-icons--icons:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition-duration: 0.5s;
+}
+
+
+
+
+
+.section-form {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.section-form input {
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 5px 3px 10px darkgray;
+}
+.section-form textarea {
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 10px darkgray;
+}
+
+
+
+
+
+footer {
+    background-color:#000;
+    padding:20px;
+}
+.footer--area {
+    max-width:1140px;
+    margin:auto;
+    color:#FFF;
+    display:flex;
+}
+.footer--item {
+    flex:1;
+}
+.footer-social {
+    display:flex;
+}
+.footer-social a {
+    display:block;
+    width:25px;
+    height:25px;
+    background-color:#333;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:13px;
+    margin-right:10px;
+}
+.footer-social a:hover {
+    background-color:#B28756;
+}
+.footer-social img {
+    height:10px;
+}
+.footer--item.area2 {
+    color:#999;
+    line-height:20px;
+    font-size:13px;
+    padding:0 10px 10px 10px;
+}
+.footer--item.area3 form {
+    background-color:#333;
+    text-align:center;
+    padding:30px;
+}
+.footer--item.area3 input {
+    width:100%;
+    height:40px;
+    border:0;
+    background:transparent;
+    border-bottom:1px solid #CCC;
+    outline:0;
+    color:#FFF;
+    font-size:14px;
+    text-align:center;
+}
+
+
+
+/* area responsiva - tablet*/
+@media (min-width: 450px) and (max-width: 800px)  {
+    .logo {
+        margin-left: 30px;
+    }
+    .menu-opener {
+        display: block;
+        width: 45px;
+        margin-right: 30px;
+    }
+    nav {
+        display: none;
+        position: absolute;
+        z-index: 99;   /* ficar em cima de tudo */
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 80vw;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0px;
+    }
+    .menu ul {
+        flex-direction: column;
+    }
+    .menu li a {
+        font-weight: bold;
+        font-size: 20px;
+        height: 60px;
+        margin-left: 30px;
+        border: 0px;
+    }
+    .menu li.active a {
+        border: 0px;
+        color: #b28765;
+    }
+
+
+    
+
+    .section-aboutus {
+        flex-direction: column;
+    }
+    .section-aboutus--left {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .section-aboutus--rigth {
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .section-aboutus--rigth img {
+        width: 70%;
+    }
+
+
+    .section-services {
+        flex-wrap: wrap;
+    }
+    .section-service {
+        min-width: 50%;
+        margin-bottom: 30px;
+    }
+
+
+    .section-team {
+        max-width: 580px;
+    }
+
+
+
+    .section-price--banners {
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+    .section-prices--bannerarea {
+        min-width: 40%;
+        margin-bottom: 30px;
+    }
+
+
+    .section-premium-rigth {
+        margin-left: 30px;
+    }
+
+
+    .section-some--facts {
+        flex-wrap: wrap;
+    }
+    .section-facts {
+        min-width: 50%;
+        margin-bottom: 30px;
+    }
+
+
+    .section-footer {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+
+}
+
+
+/* area responsiva - celular*/
+@media (max-width: 450px) {
+    .logo {
+        margin-left: 30px;
+    }
+    .menu-opener {
+        display: block;
+        width: 45px;
+        margin-right: 30px;
+    }
+    nav {
+        display: none;
+        position: absolute;
+        z-index: 99;   /* ficar em cima de tudo */
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 70vw;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0px;
+    }
+    .menu ul {
+        flex-direction: column;
+    }
+    .menu li a {
+        font-weight: bold;
+        font-size: 20px;
+        height: 60px;
+        margin-left: 30px;
+        border: 0px;
+    }
+    .menu li.active a {
+        border: 0px;
+        color: #b28765;
+    }
+
+
+    .banner h1 {
+        font-size: 30px;
+    }
+    .banner h2 {
+        font-size: 17px;
+    }
+
+
+    
+
+    .section-aboutus {
+        flex-direction: column;
+    }
+    .section-aboutus--left {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .section-aboutus--rigth {
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .section-aboutus--rigth img {
+        width: 100%;
+    }
+
+
+    .section-services {
+        flex-wrap: wrap;
+    }
+    .section-service {
+        min-width: 100%;
+        margin-bottom: 30px;
+        border: 0px;
+    }
+
+
+    .section-projects--filters {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+
+    .section-team {
+        max-width: 280px;
+    }
+
+
+    .section-companies--area {
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+    .section-company {
+        min-width: 50%;
+        margin-bottom: 30px;
+    }
+
+
+
+    .section-price--banners {
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+    .section-prices--bannerarea {
+        min-width: 40%;
+        width: calc(100vw - 40px);
+        margin-bottom: 30px;
+    }
+
+
+    .section-premium {
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+    .section-premium-rigth img{
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+    
+
+
+    .section-some--facts {
+        flex-wrap: wrap;
+    }
+    .section-facts {
+        min-width: 100%;
+        margin-bottom: 30px;
+    }
+    .section-facts h3 {
+        font-size: 45px;
+    }
+    .section-facts p {
+        font-size: 20px;
+    }
+
+
+    .social-icons--icons {
+        margin-left: 10px;
+    }
+
+
+    .section-form input {
+        width: 90%;
+    }
+
+
+    .footer--area {
+        flex-direction:column;
+    }
+    .footer--item {
+        margin-bottom:20px;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+
+
+}
+
+
+
